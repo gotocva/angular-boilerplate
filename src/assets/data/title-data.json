@@ -1,0 +1,7 @@
+{
+    "title_data" : {
+        "/" : "Login in to your account",
+        "/register" : "Create an account",
+        "/forget-password" : "Reset your account password"
+    }
+}

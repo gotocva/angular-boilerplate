@@ -1,0 +1,38 @@
+<mat-toolbar color="warn">
+    <mat-toolbar-row>
+
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+ 
+      <span class="example-spacer"></span>
+
+        <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">person</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          Logout
+        </button>
+        </mat-menu>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #drawer mode="side" opened role="navigation">
+      <mat-nav-list>
+        <span *ngFor="let nav of navigations">
+          <a mat-list-item routerLink='{{nav.link}}' routerLinkActive="active">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">{{nav.icon}}</mat-icon> 
+            <span class="nav-link-content">{{nav.label}}</span>
+          </a>
+        </span>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

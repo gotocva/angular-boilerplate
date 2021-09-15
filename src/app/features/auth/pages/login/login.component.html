@@ -1,0 +1,31 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box mat-input-full-width">
+     <mat-card-header>
+        <mat-card-title>Login to your account</mat-card-title>
+     </mat-card-header>
+     <form class="example-form">
+        <mat-card-content>
+           <mat-form-field appearance="outline" class="mat-input-full-width">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" [formControl]="loginForm.email" />
+              <mat-error *ngIf="loginForm.email.invalid">
+                {{ getErrorMessage("email") }}
+              </mat-error>
+           </mat-form-field>
+           <mat-form-field appearance="outline" class="mat-input-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Password" type="password" [formControl]="loginForm.password" />
+              <mat-error *ngIf="loginForm.password.invalid">
+                {{ getErrorMessage("password") }}
+              </mat-error>
+           </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button [disabled]="formStatus == false" color="primary" (click)="onSubmit()"
+        class="float-end bg-primary text-white">
+        <span *ngIf="loading"><i class="fa fa-refresh fa-spin"></i>&nbsp;Loading</span><span
+           *ngIf="!loading">Login</span>
+        </button>
+        Don't have an account ?<a href="register"> Sign up here</a>
+     </form>
+  </mat-card>
+</div>
